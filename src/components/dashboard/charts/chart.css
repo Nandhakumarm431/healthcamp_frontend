@@ -1,0 +1,24 @@
+.month-selector{
+    display: flex;
+    padding-right: 10px;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+}
+
+.month-selector label {
+    font-size: 12px;    
+    margin-right: 10px;
+}
+
+.month-selector select {
+    font-size: 10px;
+    padding: 2px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 1000px; /* Optional: Set a max width */
+    height: 50vh; /* Height based on viewport height */
+    margin: 0 auto; /* Center the chart */
+}

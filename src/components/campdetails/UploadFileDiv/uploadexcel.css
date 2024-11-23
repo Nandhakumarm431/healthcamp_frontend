@@ -1,0 +1,57 @@
+
+.modal-footer{
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-sendfile {
+    position: relative;
+    border: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    background-color: #0f8b34;
+    font-size: 12px;
+    height: 30px;
+    width: 80px;
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 10px ;
+    cursor: pointer;
+
+}
+
+.forms-controfl input[type=file] {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 15px;
+    border: 1px solid #998c8c;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+#input-body {
+    border: 0;
+}
+
+#uploadfile-input {
+    padding: 20px;
+
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.modal-header h5{
+    font-size: 20px;
+    font-weight: 600;
+}
+.modal-header .down-icon{
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+}
