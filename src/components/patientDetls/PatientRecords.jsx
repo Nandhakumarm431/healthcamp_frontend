@@ -200,7 +200,7 @@ function PatientRecords() {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Patient ID</TableCell>
-                                        <TableCell >Patient FullName</TableCell>
+                                        <TableCell >Patient Name</TableCell>
                                         <TableCell >Age</TableCell>
                                         <TableCell align="left">Gender</TableCell>
                                         <TableCell align="left">Blood Group</TableCell>

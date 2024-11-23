@@ -7,6 +7,7 @@ const UploadedFilesTable = ({ uploadedFiles, data }) => {
 
     const apiUrl = process.env.REACT_APP_API_URL;
 
+    console.log('uploadedFiles', uploadedFiles);
     if (!uploadedFiles || uploadedFiles.length === 0) {
         return <p>No files uploaded yet.</p>;
     }
@@ -37,18 +38,18 @@ const UploadedFilesTable = ({ uploadedFiles, data }) => {
     return (
         <TableContainer component={Paper} style={{ backgroundColor: 'whitesmoke' }}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead style={{ backgroundColor: 'ActiveBorder'}}>
+                <TableHead style={{ backgroundColor: 'ActiveBorder' }}>
                     <TableRow>
-                        <TableCell style={{color:'white'}}>File Name</TableCell>
-                        <TableCell style={{color:'white'}}>Description</TableCell>
-                        <TableCell style={{color:'white'}}>Actions</TableCell>
+                        <TableCell style={{ color: 'white' }}>File Name</TableCell>
+                        <TableCell style={{ color: 'white' }}>Description</TableCell>
+                        <TableCell style={{ color: 'white' }}>Actions</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {uploadedFiles.map((file) => (
                         <TableRow key={file.id}>
                             <TableCell>
-                                {file.reportFileName.length > 25
+                                {file.reportFileName != null && file.reportFileName.length > 25
                                     ? `${file.reportFileName.slice(0, 20)}...`
                                     : file.reportFileName}
                             </TableCell>
