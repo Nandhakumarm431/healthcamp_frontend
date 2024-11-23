@@ -13,7 +13,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import headerLogo from '../../../images/hms-logo.png';
+import headerLogo from '../../../images/genrl-logo.png';
 import ForgetPassword from '../forgetPassword/ForgetPassword';
 
 // TODO remove, this demo shouldn't need to reset the theme.
