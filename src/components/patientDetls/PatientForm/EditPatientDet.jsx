@@ -54,10 +54,10 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     useEffect(() => {
         if (campID !== '') {
             try {
-                fetch(`${apiUrl}/getOneCamp/${campID}`)
+                fetch(`${apiUrl}/getCampNameDet/${campID}`)
                     .then(response => response.json())
                     .then(data => {
-                        setcampRecord(data.data.campName)
+                        setcampRecord(data.campName)
                     }).catch(err => {
 
                     })

@@ -34,7 +34,8 @@ const VolunteerDet = () => {
         <>
             <div className="container">
                 <div className="head-title">
-                    <div className="sesstion-header-name" >
+                    <div className="sesstion-header-name" style={{ display: 'flex', gridGap: '10px',alignItems:'center' }}>
+
                         <ArrowCircleLeftIcon onClick={() => sidebarChange()}
                             style={{
                                 cursor: 'pointer'
