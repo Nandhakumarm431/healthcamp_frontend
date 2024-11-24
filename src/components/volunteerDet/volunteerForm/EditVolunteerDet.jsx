@@ -40,10 +40,10 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
     const [campDetls, setCampDetls] = useState([])
     useEffect(() => {
 
-        fetch(`${apiUrl}/getOneCamp/${campIdD}`)
+        fetch(`${apiUrl}/getCampNameDet/${campIdD}`)
             .then(response => response.json())
             .then(data => {
-                setCampDetls(data.data.campName)
+                setCampDetls(data.campName)
             }).catch(err => {
                 setCampDetls('')
             })
