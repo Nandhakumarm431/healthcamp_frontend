@@ -169,7 +169,7 @@ function AllVolunteerRecords() {
 
                             </div>
                             <Paper className='table-volunteer-container'>
-                                <TableContainer component={Paper} sx={{ maxHeight: 350 }}>
+                                <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
                                     <Table size='small' aria-label="a dense table">
                                         <TableHead>
                                             <TableRow>

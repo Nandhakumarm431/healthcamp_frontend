@@ -6,7 +6,7 @@ import headerIcon from '../../../images/genrl-icon.png';
 import headerLogo from '../../../images/genrl-logo.png';
 import { setValue } from '../../redux/reducer';
 import './sidebar.css';
-
+ 
 const Sidebar = ({ hideStyle, userData }) => {
 
   const userRole = userData.role;
@@ -37,7 +37,6 @@ const Sidebar = ({ hideStyle, userData }) => {
     },
   ]
   const dispatch = useDispatch();
-
   const actStyle = useSelector(state => state.myReducer.activeStyle)
 
   const [activeStyle, setactiveStyle] = useState(actStyle === '' ? 1 : actStyle)

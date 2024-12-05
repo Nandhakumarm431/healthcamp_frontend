@@ -1,10 +1,6 @@
-import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
-import React, { useState } from 'react'
-import './passChng.css'
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { NotificationManager } from 'react-notifications'
-import { NotificationContainer } from 'react-notifications';
+import { Box, Button, Grid, Input, Paper, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 
@@ -19,13 +15,13 @@ const PasswordChange = () => {
     const [currentPassword, setCurrentPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
-    const [showPassword1, setShowPassword1] = useState(false);
-    const [showPassword2, setShowPassword2] = useState(false);
-    const [showPassword3, setShowPassword3] = useState(false);
+    // const [showPassword1, setShowPassword1] = useState(false);
+    // const [showPassword2, setShowPassword2] = useState(false);
+    // const [showPassword3, setShowPassword3] = useState(false);
 
-    const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
-    const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
-    const handleClickShowPassword3 = () => setShowPassword3((show) => !show);
+    // const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
+    // const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
+    // const handleClickShowPassword3 = () => setShowPassword3((show) => !show);
 
     const changePassword = async () => {
         let payload = {
@@ -59,75 +55,83 @@ const PasswordChange = () => {
 
     return (
         <>
-            <div className='changepwd-con'>
-                <div>
-                    <h3>Change Password</h3>
-                </div>
-                <div className='passchange'>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
-                        <InputLabel htmlFor="standard-adornment-password1">Current Password</InputLabel>
-                        <Input
-                            id="standard-adornment-password1"
-                            type={showPassword1 ? 'text' : 'password'}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword1}
-                                    >
-                                        {showPassword1 ? <VisibilityOff className='visible-icon'/> : <Visibility className='visible-icon'/>}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            value={currentPassword}
-                            onChange={(e) => setCurrentPassword(e.target.value)} required
-                        />
-                    </FormControl>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
-                        <InputLabel htmlFor="standard-adornment-password2">New Password</InputLabel>
-                        <Input
-                            id="standard-adornment-password2"
-                            type={showPassword2 ? 'text' : 'password'}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword2}
-                                    >
-                                        {showPassword2 ? <VisibilityOff className='visible-icon'/> : <Visibility className='visible-icon'/>}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            value={newPassword}
-                            onChange={(e) => setNewPassword(e.target.value)} required
-                        />
-                    </FormControl>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
-                        <InputLabel htmlFor="standard-adornment-password3">Confirm Password</InputLabel>
-                        <Input
-                            id="standard-adornment-password3"
-                            type={showPassword3 ? 'text' : 'password'}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword3}
-                                    >
-                                        {showPassword3 ? <VisibilityOff className='visible-icon'/> : <Visibility className='visible-icon'/>}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            value={confirmPassword}
-                            onChange={(e) => setconfirmPassword(e.target.value)} required
-                        />
-                    </FormControl>
-                    <div className='submit-btn'>
-                        <Button className='btn-passwrd' variant="outlined" size="small" onClick={changePassword}>
-                            Save Password
+            <Box>
+                <Typography variant="h5" gutterBottom>
+                Change Password
+                </Typography>
+                <div
+                    style={{
+                        padding: 3,
+                        borderRadius: '8px',
+                        marginTop: 3,
+                    }} >
+                      <Grid container spacing={2}>
+                        {/* Old Password */}
+                        <Grid item xs={12}>
+                            <Typography variant="body1" sx={{ fontSize: '14px', fontWeight: '600' }}>Old Password</Typography>
+                            <Input
+                                placeholder="Old Password"
+                                type="password"
+                                fullWidth
+                                sx={{
+                                    marginTop: 1,
+                                    padding: '6px 12px',
+                                    height: '36px',
+                                    fontSize: '12px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                }}
+                                value={currentPassword}
+                                onChange={(e) => setCurrentPassword(e.target.value)}
+                            />
+                        </Grid>
+
+                        {/* New Password */}
+                        <Grid item xs={12}>
+                            <Typography variant="body1" sx={{ fontSize: '14px', fontWeight: '600' }}>New Password</Typography>
+                            <Input
+                                placeholder="New Password"
+                                type="password"
+                                fullWidth
+                                sx={{
+                                    marginTop: 1,
+                                    padding: '6px 12px',
+                                    height: '36px',
+                                    fontSize: '12px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                }}
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                            />
+                        </Grid>
+
+                        {/* Re-type New Password */}
+                        <Grid item xs={12}>
+                            <Typography variant="body1" sx={{ fontSize: '14px', fontWeight: '600' }}>Re-type New Password</Typography>
+                            <Input
+                                placeholder="Re-type New Password"
+                                type="password"
+                                fullWidth
+                                sx={{
+                                    marginTop: 1,
+                                    padding: '6px 12px',
+                                    height: '36px',
+                                    fontSize: '12px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '4px',
+                                }} value={confirmPassword}
+                                onChange={(e) => setconfirmPassword(e.target.value)}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Box sx={{ marginTop: 2 }}>
+                        <Button style={{ height: '25px' }} variant="contained" color="primary" onClick={changePassword}>
+                            Update Password
                         </Button>
-                    </div>
+                    </Box>
                 </div>
-            </div>
+            </Box>
             <NotificationContainer />
 
         </>

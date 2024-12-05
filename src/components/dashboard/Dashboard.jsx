@@ -1,13 +1,12 @@
 import { GroupAddOutlined, MedicalServicesOutlined, PersonOutlineOutlined } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
+import CampDataChart from './charts/CampDataChart';
 import RoleBasedUserChart from './charts/RoleBasedUserChart';
 import './dashboard.css';
-import MnthWiseCampPatn from './charts/MnthWiseCampPatn';
 
 const Dashboard = () => {
 
     const apiUrl = process.env.REACT_APP_API_URL;
-
     const [patientCount, setpatientCount] = useState('')
     const [campCount, setcampCount] = useState('')
     const [userCount, setUserCount] = useState('')
@@ -61,13 +60,9 @@ const Dashboard = () => {
                         <RoleBasedUserChart />
                     </div>
                     <div className="head-subsession1">
-                        {/* <div>
-                            <MnthWiseCampPatn />
-                        </div> */}
+                        <CampDataChart />
                     </div>
-
                 </div>
-
             </div>
         </>
     )

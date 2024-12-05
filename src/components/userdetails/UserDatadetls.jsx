@@ -73,21 +73,13 @@ function UserDatadetls() {
   useEffect(() => {
     fetchData();
   }, []);
-  // useEffect(() => {
-  //   fetch(`${apiUrl}/getAllCampdet`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setallUserDet(data)
-  //     }).catch(err => {
-
-  //     })
-  // }, [])
 
   const [searchText, setsearchText] = useState('')
   const [selectRole, setselectRole] = useState('')
 
   const searchUserLists = allUserLists.filter(item =>
-    searchText ? item.fullName !== null && item.fullName.toLowerCase().includes(searchText.toLowerCase()) : true
+    (searchText ? item.fullName !== null && item.fullName.toLowerCase().includes(searchText.toLowerCase()) : true)
+    && item.id !== userId
   )
 
   const userLists = searchUserLists.filter(item => {
@@ -197,7 +189,7 @@ function UserDatadetls() {
                 value={selectRole}>
                 <option>Select Role</option>
                 {userRoles === undefined ?
-                  <option>Select Activity Type</option> :
+                  <option>Role Empty</option> :
                   userRoles.map((item) => (
                     <option key={item.id} value={item.name}>
                       {item.name}

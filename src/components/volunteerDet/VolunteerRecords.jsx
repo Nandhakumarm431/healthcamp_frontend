@@ -72,7 +72,7 @@ function VolunteerRecords() {
     const [searchText, setsearchText] = useState('')
     const [selectType, setselectType] = useState('')
 
-    const searchVol = allVolunteers  
+    const searchVol = allVolunteers
         .filter(item =>
             searchText ? item.volunteerName !== null && item.volunteerName.toLowerCase().includes(searchText.toLowerCase()) : true
         )

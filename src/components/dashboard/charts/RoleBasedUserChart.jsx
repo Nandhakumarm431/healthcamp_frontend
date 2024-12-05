@@ -1,29 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import './chart.css'; // Import your CSS file
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from 'chart.js';
+import './chart.css'
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const RoleBasedUserChart = () => {
-
     const apiUrl = process.env.REACT_APP_API_URL;
-
     const [roleData, setRoleData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -58,7 +41,8 @@ const RoleBasedUserChart = () => {
 
     // Create dataset with abbreviations of role names
     const data = {
-        labels: roleData.map(role => getAbbreviation(role.roleName)),  // Show abbreviation
+        // labels: roleData.map(role => getAbbreviation(role.roleName)),  
+        labels: roleData.map(role => role.roleName),
         datasets: [
             {
                 label: 'User Count',
@@ -88,7 +72,7 @@ const RoleBasedUserChart = () => {
             tooltip: {
                 callbacks: {
                     // Custom tooltip to display full role name on hover
-                    title: function(context) {
+                    title: function (context) {
                         const index = context[0].dataIndex;
                         return roleData[index].roleName; // Show full role name
                     }
@@ -98,8 +82,13 @@ const RoleBasedUserChart = () => {
     };
 
     return (
-        <div className="chart-container">
-            <Bar data={data} options={options} />
+        <div className="campcontainerchart">
+            <div className="filter-header">
+                <h5>Role wise Users count </h5>
+            </div>
+            <div style={{ width: '100%', height: '100%' }}>
+                <Bar data={data} options={options} />
+            </div>
         </div>
     );
 };

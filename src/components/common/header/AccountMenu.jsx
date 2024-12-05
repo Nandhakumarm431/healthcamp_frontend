@@ -31,7 +31,6 @@ function AccountMenu() {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center', gridColumnGap: '10px' }}>
         <div className="header-name">
           <h5>Hi, {name.slice(name.lastIndexOf(' ') + 1)}</h5>
-          {/* <h5>Hi, {name} </h5> */}
           <p>{userProfile.role} </p>
         </div>
         <Tooltip title="Account settings">
@@ -41,64 +40,12 @@ function AccountMenu() {
             sx={{ ml: 2 }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined} 
-          >
+            aria-expanded={open ? 'true' : undefined}  >
             <Avatar sx={{ width: 32, height: 32,backgroundColor:'#fff',color:'#000',fontWeight:600 }}>{name.charAt(0)}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
-      <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&::before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Person2Rounded fontSize="small" />
-          </ListItemIcon>
-          Profile
-        </MenuItem>
-        {/* <Divider /> */}
-        
-        <a href='/logout'>
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <Logout fontSize="small" />
-            </ListItemIcon>
-            Logout
-          </MenuItem>
-        </a>
-      </Menu>
+      
     </>
   );
 }

@@ -116,37 +116,48 @@ const SelectExistUser = ({ fetchVoluntrData, campIdD, userID, isSelectuser, onSe
                             <Grid item xs={12} className="forms-controfl">
                                 <label style={{ fontSize: '16px' }}>Select Volunteers</label>
                                 <ThemeProvider theme={theme}>
-                                    <input type='search'
-                                        value={searchTerm}
-                                        onChange={handleSearch}
-                                        placeholder="Search volunteers"
-                                        variant="outlined"
-                                        style={{ marginBottom: '10px', width: '300px', fontSize:'14px'}}
-                                    />
-                                    <Select
-                                        style={{ width: '300px' }}
-                                        multiple
-                                        value={personName}
-                                        onChange={handleChange}
-                                        renderValue={(selected) => (
-                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                                                {selected.map((value) => (
-                                                    <Chip key={value.id} label={value.volunteerName} />
-                                                ))}
-                                            </Box>
-                                        )}
-                                        MenuProps={{ PaperProps: { style: { maxHeight: 224, width: 250 } } }}
-                                    >
-                                        {filteredVolunteers.map((volunteer) => (
-                                            <MenuItem
-                                                key={volunteer.id}
-                                                value={volunteer}
-                                                style={getStyles(volunteer.volunteerName, personName, theme)}
-                                            >
-                                                {volunteer.volunteerName}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
+                                    <div className='jm-post-job-wrapper'>
+                                        <input type='search'
+                                            value={searchTerm}
+                                            onChange={handleSearch}
+                                            placeholder="Search volunteers"
+                                            variant="outlined"
+                                            style={{ marginBottom: '10px', width: '250px', fontSize: '12px' }}
+                                        />
+                                        <Select
+                                            style={{ width: '300px' }}
+                                            multiple
+                                            value={personName}
+                                            onChange={handleChange}
+                                            renderValue={(selected) => (
+                                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                                    {selected.length > 0
+                                                        ? selected.map((value) => (
+                                                            <Chip key={value.id} label={value.volunteerName} />
+                                                        ))
+                                                        : "Select volunteers"}
+                                                </Box>
+                                            )}
+                                            MenuProps={{ PaperProps: { style: { maxHeight: 224, width: 250 } } }}
+                                        >
+                                            {/* Placeholder option */}
+                                            {personName.length === 0 && (
+                                                <MenuItem disabled value="">
+                                                    Select volunteers
+                                                </MenuItem>
+                                            )}
+                                            {filteredVolunteers.map((volunteer) => (
+                                                <MenuItem
+                                                    key={volunteer.id}
+                                                    value={volunteer}
+                                                    style={getStyles(volunteer.volunteerName, personName, theme)}
+                                                >
+                                                    {volunteer.volunteerName}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+
+                                    </div>
                                 </ThemeProvider>
                             </Grid>
 

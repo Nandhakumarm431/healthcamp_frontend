@@ -262,7 +262,6 @@ const EditCampDet = ({ fetchData, userData, data, formMode, isOpen, onClose }) =
                                                                 </div>
                                                             </Grid>
                                                         </div>
-
                                                     </form>
                                                 </div>
                                                 <div className="form-inner" style={formMode === 'view' ? { display: 'block' } : { display: 'none' }}>

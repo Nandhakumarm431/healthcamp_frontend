@@ -110,7 +110,7 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     ]
 
 
-    const addVolunteerDetls = async (e) => {
+    const addPatientDetls = async (e) => {
         e.preventDefault();
         let payload = {
             "patientFullName": patientFullName,
@@ -168,7 +168,7 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     }
 
 
-    const updateVolunteerDetls = async () => {
+    const updatePatientDetls = async () => {
         // e.preventDefault();
         let payload = {
             "patientFullName": patientFullName,
@@ -199,56 +199,25 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
             "campId": campID
         }
         try {
-            setLoading(true);
-            if (formMode === 'edit') {
-                const res = await fetch(`${apiUrl}/updatePatientDet/${data.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                if (res.ok) {
-                    const result = await res.json();
-                    if (data.patientID && selectedFiles.length !== 0) {
-                        const formData = new FormData();
-                        selectedFiles.forEach((file) => {
-                            formData.append('files', file);
-                        });
-                        formData.append('patientID', data.patientID);
-                        formData.append('description',fileDesc);
-                        formData.append('userID', userID);
-                        try {
-                            setLoading(true);
-                            const response = await fetch(`${apiUrl}/uploadReport`, {
-                                method: 'POST',
-                                body: formData
-                            });
-                            if (!response.ok) {
-                                throw new Error('Failed to upload files.');
-                            }
-                        } catch (error) {
-                            console.error('Error uploading files:', error); setLoading(false);
-                        } finally {
-                            setLoading(false);
-                        }
-                    }
-                    await fetchPatientData();
-                    NotificationManager.success(result.message)
-                    onClose();
-
-                } else {
-                    const result = await res.json();
-                    NotificationManager.error(result.message)
-                }
+            const res = await fetch(`${apiUrl}/updatePatientDet/${data.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json();
+            if (res.ok) {
+                await fetchPatientData();
+                NotificationManager.success(result.message)
+                onClose();
+            } else {
+                NotificationManager.error(result.message)
             }
         } catch (error) {
             NotificationManager.error(error)
-        } finally {
-            setLoading(false);
         }
     }
-
 
     const fetchData = async (contactNo) => {
         let data = {
@@ -278,31 +247,8 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
         }
     }, [contactNo]);
 
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const [fileDesc, setFileDesc] =useState([]);
-    const [uploadedFiles, setUploadedFiles] = useState([]);
-    const [loading, setLoading] = useState(false);
 
-    const handleFileChange = (e) => {
-        setSelectedFiles([...e.target.files]);
 
-    };
-    const fetchUploadedFiles = async () => {
-        try {
-            if (data.id) {
-                const response = await fetch(`${apiUrl}/getPatientReports/${data.id}`);
-                if (response.ok) {
-                    const jsonResponse = await response.json();
-                    setUploadedFiles(jsonResponse);
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching files:', error);
-        }
-    };
-    useEffect(() => {
-        fetchUploadedFiles()
-    }, []);
 
     const handleDownload = async (file) => {
         try {
@@ -429,27 +375,6 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                         onChange={(e) => setreasonForVisiting(e.target.value)}
                                                                     />
                                                                 </Grid>
-                                                                <Grid item xs={12} style={{ display: 'flex', gridGap: 10 }} className="forms-controfl">
-                                                                    <Grid item xs={8} className="forms-controfl">
-                                                                        <label>Medical Reports(If any)</label>
-                                                                        <input type="file" multiple onChange={handleFileChange} />
-                                                                    </Grid>
-                                                                    <Grid item xs={4} className="forms-controfl">
-                                                                        <label>File Description</label>
-                                                                        <input type="text" onChange={(e) => setFileDesc(e.target.value)} />
-                                                                    </Grid>
-
-                                                                </Grid>
-                                                                {uploadedFiles && uploadedFiles.length > 0 && (
-                                                                    <>
-                                                                        <Grid item xs={12} className="forms-controfl">
-                                                                            <div>
-                                                                                <label>Uploaded Files</label>
-                                                                                <UploadedFilesTable uploadedFiles={uploadedFiles} data={data} />
-                                                                            </div>
-                                                                        </Grid>
-                                                                    </>
-                                                                )}
                                                                 <Grid item xs={12} className="forms-controfl" style={{ justifyContent: 'right', display: 'flex' }}>
                                                                     <Tooltip title={showMore ? "Hide Additional Info" : "Show Additional Info"} aria-label="toggle visibility">
                                                                         <IconButton onClick={() => setShowMore(!showMore)}>
@@ -601,14 +526,14 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                 <div style={{ textAlign: 'right', marginTop: '10px' }}>
                                                                     {data === null ?
                                                                         <Button style={{ height: '25px' }}
-                                                                            onClick={addVolunteerDetls}
+                                                                            onClick={addPatientDetls}
                                                                             variant="contained" color="success">
                                                                             Create
                                                                         </Button>
                                                                         :
                                                                         <Button style={{ height: '25px' }}
-                                                                            onClick={updateVolunteerDetls}
-                                                                            variant="contained" color="success" disabled={loading}>
+                                                                            onClick={updatePatientDetls}
+                                                                            variant="contained" color="success">
                                                                             Update
                                                                         </Button>
                                                                     }
