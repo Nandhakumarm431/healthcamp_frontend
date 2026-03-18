@@ -73,6 +73,7 @@ function UserDatadetls() {
   useEffect(() => {
     fetchData();
   }, []);
+<<<<<<< HEAD
   // useEffect(() => {
   //   fetch(`${apiUrl}/getAllCampdet`)
   //     .then(response => response.json())
@@ -82,12 +83,19 @@ function UserDatadetls() {
 
   //     })
   // }, [])
+=======
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
 
   const [searchText, setsearchText] = useState('')
   const [selectRole, setselectRole] = useState('')
 
   const searchUserLists = allUserLists.filter(item =>
+<<<<<<< HEAD
     searchText ? item.fullName !== null && item.fullName.toLowerCase().includes(searchText.toLowerCase()) : true
+=======
+    (searchText ? item.fullName !== null && item.fullName.toLowerCase().includes(searchText.toLowerCase()) : true)
+    && item.id !== userId
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
   )
 
   const userLists = searchUserLists.filter(item => {
@@ -197,7 +205,11 @@ function UserDatadetls() {
                 value={selectRole}>
                 <option>Select Role</option>
                 {userRoles === undefined ?
+<<<<<<< HEAD
                   <option>Select Activity Type</option> :
+=======
+                  <option>Role Empty</option> :
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                   userRoles.map((item) => (
                     <option key={item.id} value={item.name}>
                       {item.name}

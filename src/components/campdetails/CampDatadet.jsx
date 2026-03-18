@@ -218,7 +218,11 @@ function CampDatadet() {
 
             </div>
             <Paper className='table-container-camp'>
+<<<<<<< HEAD
               <TableContainer component={Paper} sx={{ maxHeight: 350 }}>
+=======
+              <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                 <Table size='small' aria-label="a dense table">
                   <TableHead>
                     <TableRow>
@@ -259,7 +263,33 @@ function CampDatadet() {
                             <TableCell align="left">{row.users.organizationDet.orgName}</TableCell>
 
                             <TableCell component="td" scope="row" className='action-items'>
+<<<<<<< HEAD
                                {userRole === 'ROLE_SUPER_ADMIN' || userRole === 'ROLE_ADMIN' || userRole === 'ROLE_HEALTHCARE_PROVIDER' || userRole === 'ROLE_CAMP_ADMIN' || userRole === 'ROLE_VOLUNTEER' ?
+=======
+                              {/* <IconButton className='icon-action'>
+                              <Tooltip title='Edit'>
+                                <ModeEditOutlineOutlined onClick={() => editRecord(row)} className='icon-action' />
+                              </Tooltip>
+                            </IconButton> */}
+                              {/* <IconButton className='icon-action'>
+                              <Tooltip title='View'>
+                                <VisibilityOutlined onClick={() => viewRecord(row)} className='icon-action' />
+                              </Tooltip>
+                            </IconButton> */}
+                              {/* {userRole === "ROLE_SUPER_ADMIN" ?
+                              <IconButton className='icon-action'>
+                                <Tooltip title='Delete'>
+                                  <DeleteOutlineOutlined onClick={() => deleteRecord(row)} className='icon-action' />
+                                </Tooltip>
+                              </IconButton> : ''
+                            } */}
+                              {/* <IconButton className='icon-action'>
+                              <Tooltip title='Volunteer Det'>
+                                <AddBoxOutlined />
+                              </Tooltip>
+                            </IconButton> */}
+                              {userRole === 'ROLE_SUPER_ADMIN' || userRole === 'ROLE_ADMIN' || userRole === 'ROLE_HEALTHCARE_PROVIDER' || userRole === 'ROLE_CAMP_ADMIN' || userRole === 'ROLE_VOLUNTEER' ?
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                 <IconButton className='icon-action'>
                                   <Tooltip title='Patient Det' >
                                     <LocalHospitalTwoTone
@@ -278,7 +308,10 @@ function CampDatadet() {
                                   </Tooltip>
                                 </IconButton>
                                 : ''}
+<<<<<<< HEAD
                                  
+=======
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                             </TableCell>
 
                           </TableRow>

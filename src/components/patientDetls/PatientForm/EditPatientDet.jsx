@@ -54,10 +54,17 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     useEffect(() => {
         if (campID !== '') {
             try {
+<<<<<<< HEAD
                 fetch(`${apiUrl}/getOneCamp/${campID}`)
                     .then(response => response.json())
                     .then(data => {
                         setcampRecord(data.data.campName)
+=======
+                fetch(`${apiUrl}/getCampNameDet/${campID}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        setcampRecord(data.campName)
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                     }).catch(err => {
 
                     })
@@ -110,7 +117,11 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     ]
 
 
+<<<<<<< HEAD
     const addVolunteerDetls = async (e) => {
+=======
+    const addPatientDetls = async (e) => {
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
         e.preventDefault();
         let payload = {
             "patientFullName": patientFullName,
@@ -168,7 +179,11 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     }
 
 
+<<<<<<< HEAD
     const updateVolunteerDetls = async () => {
+=======
+    const updatePatientDetls = async () => {
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
         // e.preventDefault();
         let payload = {
             "patientFullName": patientFullName,
@@ -199,6 +214,7 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
             "campId": campID
         }
         try {
+<<<<<<< HEAD
             setLoading(true);
             if (formMode === 'edit') {
                 const res = await fetch(`${apiUrl}/updatePatientDet/${data.id}`, {
@@ -250,6 +266,28 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     }
 
 
+=======
+            const res = await fetch(`${apiUrl}/updatePatientDet/${data.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json();
+            if (res.ok) {
+                await fetchPatientData();
+                NotificationManager.success(result.message)
+                onClose();
+            } else {
+                NotificationManager.error(result.message)
+            }
+        } catch (error) {
+            NotificationManager.error(error)
+        }
+    }
+
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
     const fetchData = async (contactNo) => {
         let data = {
             "contactNo": contactNo
@@ -278,6 +316,7 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
         }
     }, [contactNo]);
 
+<<<<<<< HEAD
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [fileDesc, setFileDesc] = useState([]);
     const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -303,6 +342,10 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
     useEffect(() => {
         fetchUploadedFiles()
     }, []);
+=======
+
+
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
 
     const handleDownload = async (file) => {
         try {
@@ -395,8 +438,13 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                     />
                                                                 </Grid>
                                                                 <Grid item xs={12} sm={4} md={2.5} className="forms-controfl">
+<<<<<<< HEAD
                                                                     <label  >Gender</label>
                                                                     <select className="jm-job-select"
+=======
+                                                                    <label className='required-field'>Gender</label>
+                                                                    <select className="jm-job-select" required
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                         value={gender} onChange={(e) => setgender(e.target.value)}>
                                                                         <option>Select Gender</option>
                                                                         {genderRec === undefined ?
@@ -429,6 +477,7 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                         onChange={(e) => setreasonForVisiting(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} style={{ display: 'flex', gridGap: 10 }} className="forms-controfl">
                                                                     <Grid item xs={8} className="forms-controfl">
                                                                         <label>Medical Reports(If any)</label>
@@ -450,6 +499,8 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                         </Grid>
                                                                     </>
                                                                 )}
+=======
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <Grid item xs={12} className="forms-controfl" style={{ justifyContent: 'right', display: 'flex' }}>
                                                                     <Tooltip title={showMore ? "Hide Additional Info" : "Show Additional Info"} aria-label="toggle visibility">
                                                                         <IconButton onClick={() => setShowMore(!showMore)}>
@@ -601,14 +652,23 @@ const EditPatientDet = ({ fetchPatientData, campIdD, patientCampSelection, userI
                                                                 <div style={{ textAlign: 'right', marginTop: '10px' }}>
                                                                     {data === null ?
                                                                         <Button style={{ height: '25px' }}
+<<<<<<< HEAD
                                                                             onClick={addVolunteerDetls}
+=======
+                                                                            onClick={addPatientDetls}
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                             variant="contained" color="success">
                                                                             Create
                                                                         </Button>
                                                                         :
                                                                         <Button style={{ height: '25px' }}
+<<<<<<< HEAD
                                                                             onClick={updateVolunteerDetls}
                                                                             variant="contained" color="success" disabled={loading}>
+=======
+                                                                            onClick={updatePatientDetls}
+                                                                            variant="contained" color="success">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                             Update
                                                                         </Button>
                                                                     }

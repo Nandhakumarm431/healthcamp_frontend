@@ -10,7 +10,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
 
     const apiUrl = process.env.REACT_APP_API_URL;
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
 
     // const [campDetls, setCampDetls] = useState([])
     // useEffect(() => {
@@ -36,7 +40,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
     // const [campID, setcampID] = useState(data === null ? campIdD : campIdD)
 
     const campID = useSelector(state => state.myReducer.campId)
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
     const [campDetls, setCampDetls] = useState([])
     useEffect(() => {
 
@@ -61,7 +69,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
             "state": state,
             "zipCode": zipCode,
             "skillExpertise": skillExpertise,
+<<<<<<< HEAD
             "isSlotPicks": isSlotPicks,
+=======
+             "isSlotPicks": isSlotPicks,
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
             "created_by": userID,
             "campId": campIdD
         }
@@ -81,7 +93,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                 NotificationManager.success(data.message)
                 onClose();
                 setfullName(''); setemailID(''); setcontactNO(''); setDateOfBirth('');
+<<<<<<< HEAD
                 setstreet(''); setcity(''); setState(''); setskillExpertise(''); setisSlotPicks('');
+=======
+                 setstreet(''); setcity(''); setState(''); setskillExpertise(''); setisSlotPicks('');
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
             } else {
                 const data = await res.json();
                 NotificationManager.error(data.message)
@@ -159,14 +175,22 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                         <div className='jm-post-job-wrapper mb-40'>
                                                             <hr />
                                                             <Grid container spacing={2} className="row">
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={7} className="forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={7} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Camp Name</label>
                                                                     <input type="text"
                                                                         value={campDetls} disabled
                                                                     />
 
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={5} className="forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={5} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label className='required-field'>Volunteer Name</label>
                                                                     <input type="text" placeholder="Volunteer Name"
                                                                         value={fullName}
@@ -174,14 +198,22 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                                     />
 
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Date of Birth</label>
                                                                     <input type="date"
                                                                         value={dateOfBirth}
                                                                         onChange={(e) => setDateOfBirth(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label className='required-field'>Contact NO</label>
                                                                     {data === null ?
                                                                         <input type="number"
@@ -192,7 +224,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                                         />}
                                                                 </Grid>
 
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label className='required-field'>Email ID</label>
                                                                     {data === null ?
                                                                         <input type="text" placeholder="Email ID"
@@ -204,43 +240,68 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                                         />
                                                                     }
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Street</label>
                                                                     <input type="text" placeholder="Street"
                                                                         value={street}
                                                                         onChange={(e) => setstreet(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={3} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={3} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>City</label>
                                                                     <input type="text" placeholder="City"
                                                                         value={city}
                                                                         onChange={(e) => setcity(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={3} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={3} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>State</label>
                                                                     <input type="text" placeholder="State"
                                                                         value={state}
                                                                         onChange={(e) => setState(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={2} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={2} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Zip Code</label>
                                                                     <input type="number" placeholder="Zip Code"
                                                                         value={zipCode}
                                                                         onChange={(e) => setzipCode(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
                                                                 <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                                <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Skill Expertise</label>
                                                                     <input type="text" placeholder="Skill Expertise"
                                                                         value={skillExpertise}
                                                                         onChange={(e) => setskillExpertise(e.target.value)}
                                                                     />
                                                                 </Grid>
+<<<<<<< HEAD
 
                                                                 <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                                
+                                                                <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                     <label>Opt-in for events created and Pick Slots</label>
                                                                     <input type="text" placeholder="Slot Picks"
                                                                         value={isSlotPicks}
@@ -248,7 +309,11 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                                     />
                                                                 </Grid>
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={12}>
+=======
+                                                            <Grid item  xs={12} sm={4} md={12}>
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <hr />
                                                                 <div style={{ textAlign: 'right', marginTop: '10px' }}>
                                                                     {data === null ?
@@ -276,70 +341,115 @@ const EditVolunteerDet = ({ fetchVoluntrData, campIdD, userID, data, formMode, i
                                                     <div className='jm-post-job-wrapper mb-40'>
                                                         <hr />
                                                         <Grid container spacing={2} className="row">
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={7} className="forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={7} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Camp Name</label>
                                                                 <input type="text"
                                                                     value={campDetls} disabled
                                                                 />
 
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={5} className="forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={5} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Volunteer Name</label>
                                                                 <input type="text"
                                                                     value={fullName} disabled
                                                                 />
 
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Date of Birth</label>
                                                                 <input type="date"
                                                                     value={dateOfBirth} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Contact NO</label>
                                                                 <input type="text"
                                                                     value={contactNo} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Email ID</label>
                                                                 <input type="text"
                                                                     value={email} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={8} className=" forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={8} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Street</label>
                                                                 <input type="text"
                                                                     value={street} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>City</label>
                                                                 <input type="text"
                                                                     value={city} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>State</label>
                                                                 <input type="text"
                                                                     value={state} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Zip Code</label>
                                                                 <input type="text"
                                                                     value={zipCode} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
                                                             <Grid item xs={12} sm={4} md={4} className=" forms-controfl">
+=======
+                                                            <Grid item  xs={12} sm={4} md={4} className=" forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Skill Expertise</label>
                                                                 <input type="text"
                                                                     value={skillExpertise} disabled
                                                                 />
                                                             </Grid>
+<<<<<<< HEAD
 
                                                             <Grid item xs={12} sm={4} md={4} className="forms-controfl">
+=======
+                                                            
+                                                            <Grid item  xs={12} sm={4} md={4} className="forms-controfl">
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                                                                 <label>Opt-in for events created and Pick Slots</label>
                                                                 <input type="text"
                                                                     value={isSlotPicks} disabled

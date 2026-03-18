@@ -34,14 +34,23 @@ const VolunteerDet = () => {
         <>
             <div className="container">
                 <div className="head-title">
+<<<<<<< HEAD
                     <div className="left" style={{ display: 'flex', gridGap: '10px' }}>
+=======
+                    <div className="sesstion-header-name" style={{ display: 'flex', gridGap: '10px',alignItems:'center' }}>
+
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                         <ArrowCircleLeftIcon onClick={() => sidebarChange()}
                             style={{
                                 cursor: 'pointer'
                             }} />
                         <h2>Volunteer Details - {campDetls}</h2>
                     </div>
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> 3bb3af2a28093a4c5459755597558057977f0302
                 </div>
                 <div className="table-data">
                     <VolunteerRecords />
